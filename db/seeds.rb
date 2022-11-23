@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+=begin
+for i in 1..30
+  user = User.new
+  user.email = "user#{i}@email.com"
+  user.password = '12345678'
+  user.save!
+end
+=end
+
+for i in 1..30
+  user = User.where(email: "user#{i}@email.com").first
+  Article.create(user_id: user.id, title: "title#{i}", content: "content of article #{i}")
+end

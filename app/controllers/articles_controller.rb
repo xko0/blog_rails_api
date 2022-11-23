@@ -32,7 +32,7 @@ class ArticlesController < ApplicationController
 
   # PATCH/PUT /articles/1
   def update
-    if is_current_user?
+    if is_current_user
       if @article.update(article_params)
         render json: @article
       else
@@ -43,7 +43,7 @@ class ArticlesController < ApplicationController
 
   # DELETE /articles/1
   def destroy
-    if is_current_user?
+    if is_current_user
       @article.destroy
     end
   end
